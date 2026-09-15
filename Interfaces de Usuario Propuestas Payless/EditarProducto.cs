@@ -203,7 +203,7 @@ namespace Interfaces_de_Usuario_Propuestas_Payless
 
                 return;
             }
-           
+
 
             //Obtener marca
             DataTable marcas =
@@ -283,19 +283,16 @@ namespace Interfaces_de_Usuario_Propuestas_Payless
                 idMarca;
 
 
-            if (resultado)
-            {
-                MessageBox.Show(
-                    "Producto actualizado correctamente.",
-                    "Correcto",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
 
-                LimpiarFormulario();
+            MessageBox.Show(
+                "Datos del producto preparados correctamente.",
+                "Correcto",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
 
-
-            }
+            LimpiarFormulario();
         }
+       
 
         //Limpiar
         private void LimpiarFormulario()

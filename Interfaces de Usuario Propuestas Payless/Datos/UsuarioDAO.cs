@@ -41,6 +41,8 @@ namespace Interfaces_de_Usuario_Propuestas_Payless.Datos
 
                 NpgsqlDataReader reader = cmd.ExecuteReader();
 
+
+
                 if (reader.Read())
                 {
                     ClaseSesion.IdUsuario = Convert.ToInt32(reader["id_usuario"]);
@@ -52,8 +54,9 @@ namespace Interfaces_de_Usuario_Propuestas_Payless.Datos
                 return false;
             }
 
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("Error: " + ex.Message);
                 return false;
             }
 

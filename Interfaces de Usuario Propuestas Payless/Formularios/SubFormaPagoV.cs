@@ -34,6 +34,7 @@ namespace Interfaces_de_Usuario_Propuestas_Payless.Formularios
         private DataTable detalleVenta;
 
         private decimal tipoCambioActual;
+        private bool pagoConfirmado = false;
 
 
 
@@ -261,13 +262,15 @@ namespace Interfaces_de_Usuario_Propuestas_Payless.Formularios
 
             texto = texto.Replace(",", ".");
 
+            decimal valorConvertido;
+
             if (decimal.TryParse(
                 texto,
                 NumberStyles.Any,
                 CultureInfo.InvariantCulture,
-                out decimal resultado))
+                out valorConvertido))
             {
-                return resultado;
+                return valorConvertido;
             }
 
             return 0;
@@ -456,18 +459,6 @@ namespace Interfaces_de_Usuario_Propuestas_Payless.Formularios
 
                 return;
             }
-
-            MessageBox.Show(
-                "Pago confirmado correctamente.\n\n" +
-                "Venta: " + codigoVenta +
-                "\nTotal: C$ " +
-                total.ToString("N2"),
-                "Pago confirmado",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-            pagoConfirmado = true;
-
             btnConfirmarPago.Enabled = false;
             btnImprimirFactura.Enabled = true;
 
@@ -535,20 +526,23 @@ namespace Interfaces_de_Usuario_Propuestas_Payless.Formularios
 
             documento.Open();
 
-            Font titulo = FontFactory.GetFont(
-                FontFactory.HELVETICA_BOLD,
-                18
-            );
+            iTextSharp.text.Font titulo =
+    iTextSharp.text.FontFactory.GetFont(
+        iTextSharp.text.FontFactory.HELVETICA_BOLD,
+        18
+    );
 
-            Font normal = FontFactory.GetFont(
-                FontFactory.HELVETICA,
-                10
-            );
+            iTextSharp.text.Font normal =
+                iTextSharp.text.FontFactory.GetFont(
+                    iTextSharp.text.FontFactory.HELVETICA,
+                    10
+                );
 
-            Font negrita = FontFactory.GetFont(
-                FontFactory.HELVETICA_BOLD,
-                10
-            );
+            iTextSharp.text.Font negrita =
+                iTextSharp.text.FontFactory.GetFont(
+                    iTextSharp.text.FontFactory.HELVETICA_BOLD,
+                    10
+                );
 
             Paragraph encabezado =
                 new Paragraph("PAYLESS", titulo);
@@ -626,29 +620,44 @@ namespace Interfaces_de_Usuario_Propuestas_Payless.Formularios
             foreach (DataRow fila in detalleFactura.Rows)
             {
                 tabla.AddCell(
-                    fila["producto"].ToString()
+                    new Phrase(
+                        fila["producto"].ToString(),
+                        normal
+                    )
                 );
 
                 tabla.AddCell(
-                    fila["talla"].ToString()
+                    new Phrase(
+                        fila["talla"].ToString(),
+                        normal
+                    )
                 );
 
                 tabla.AddCell(
-                    fila["cantidad"].ToString()
+                    new Phrase(
+                        fila["cantidad"].ToString(),
+                        normal
+                    )
                 );
 
                 tabla.AddCell(
-                    "C$ " +
-                    Convert.ToDecimal(
-                        fila["precio_venta"]
-                    ).ToString("N2")
+                    new Phrase(
+                        "C$ " +
+                        Convert.ToDecimal(
+                            fila["precio_venta"]
+                        ).ToString("N2"),
+                        normal
+                    )
                 );
 
                 tabla.AddCell(
-                    "C$ " +
-                    Convert.ToDecimal(
-                        fila["subtotal"]
-                    ).ToString("N2")
+                    new Phrase(
+                        "C$ " +
+                        Convert.ToDecimal(
+                            fila["subtotal"]
+                        ).ToString("N2"),
+                        normal
+                    )
                 );
             }
 

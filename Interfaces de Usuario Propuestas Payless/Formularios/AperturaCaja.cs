@@ -167,5 +167,105 @@ namespace Interfaces_de_Usuario_Propuestas_Payless
 
             txtMontoInicial.Focus();
         }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCaja_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUsuarios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCliente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblProductos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblProveedores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCompras_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblVenta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCredito_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblInventario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMantenimiento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

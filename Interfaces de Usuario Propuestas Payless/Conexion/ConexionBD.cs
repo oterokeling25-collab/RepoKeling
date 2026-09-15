@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Interfaces_de_Usuario_Propuestas_Payless.Conexion
 {
@@ -11,7 +12,7 @@ namespace Interfaces_de_Usuario_Propuestas_Payless.Conexion
     {
 
         private readonly string cadenaConexion =
-           "Host=localhost;Port=5432;Database=PAYLESS BD;Username=postgres;Password=LeonelF_241207";
+           "Host=localhost;Port=5432;Database=PAYLESS BD;Username=postgres;Password=123456789";
 
         private NpgsqlConnection conexion;
 
@@ -34,8 +35,9 @@ namespace Interfaces_de_Usuario_Propuestas_Payless.Conexion
 
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("Error de conexión: " + ex.Message);
                 return false;
             }
         }
@@ -70,8 +72,10 @@ namespace Interfaces_de_Usuario_Propuestas_Payless.Conexion
 
         public string ObtenerPassword()
         {
-            return "LeonelF_241207";
+            return "123456789";
         }
+
+
 
 
     }
